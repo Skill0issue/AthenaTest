@@ -15,6 +15,7 @@ import {
 } from "react-icons/fa";
 import type { IconType } from "react-icons";
 import BannerImage from "../assets/sidebar_banner.jpeg";
+import { useNavigate } from "react-router-dom";
 
 type SubMenuItem = { name: string; link: View; icon: IconType };
 type MenuItem = {
@@ -67,6 +68,8 @@ const Sidebar: React.FC<SidebarProps> = ({
   activeView,
   setActiveView,
 }) => {
+  const navigate = useNavigate();
+
   const handleItemClick = (view: View) => {
     setActiveView(view);
     if (window.innerWidth < 1420) toggleSidebar();
@@ -77,7 +80,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("isAdmin");
     toggleSidebar();
-    window.location.href = "/login";
+    navigate("/login");
   }
 
   const { userName } = useUser();
