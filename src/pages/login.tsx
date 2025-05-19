@@ -54,8 +54,8 @@ const Login = () => {
           </div>
           <form
             onSubmit={(event) =>
-              handleFormSubmit(event, (status: string, user: User) => {
-                if (status === "success") {
+              handleFormSubmit(event, (status: "success" | "error", user?: User) => {
+                if (status === "success" && user) {
                   setUserName(user.firstName);
                   alert(`Welcome, ${user.firstName}!`);
                   localStorage.setItem("user", JSON.stringify(user));

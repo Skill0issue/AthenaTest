@@ -14,8 +14,8 @@ export function useSearchFilter(options: string[]) {
   const SearchComponent = () => (
     <div className="flex w-full max-w-2xl h-12 rounded-lg overflow-hidden bg-white shadow-sm">
       {/* Dropdown */}
-      <Listbox value={selected} onChange={setSelected} className=" w-1/3 h-full">
-        <div className="relative min-w-[150px]">
+      <Listbox value={selected} onChange={setSelected}>
+        <div className="relative min-w-[150px] w-1/3 h-full">
           <ListboxButton className="bg-blue-900 text-white w-full h-full px-4 py-2 text-left text-sm font-semibold flex justify-between items-center">
             {selected}
             <div className="flex flex-col">
